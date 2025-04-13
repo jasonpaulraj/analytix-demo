@@ -1,0 +1,280 @@
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(74, 222, 128, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(74, 222, 128, 0.4); }
+}
+
+@keyframes matrix-bg {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+@keyframes circuit-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes data-stream {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+body {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+  background-image: 
+    url('https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/animation-background-images/images/parallel-circuit-board.png'),
+    url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAzNGhLTEydjEyaDEydi0xMnptLTI4LTRoNHYtNGgtNHY0em00MCAwaDF2LTFoLTF2MXptLTM2IDBoMXYtMWgtMXYxem0zMi00aDR2LTRoLTR2NHoiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpIiBzdHJva2Utd2lkdGg9IjAuNSIvPjwvZz48L3N2Zz4='),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%) !important;
+  background-blend-mode: overlay !important;
+  background-size: cover, 60px 60px, 100% 100% !important;
+  background-attachment: fixed !important;
+  min-height: 100vh !important;
+  position: relative !important;
+  overflow-x: hidden !important;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(
+      transparent 0%,
+      rgba(233, 69, 96, 0.05) 50%,
+      transparent 100%
+    );
+  background-size: 100% 4px;
+  animation: data-stream 20s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container {
+  @apply backdrop-blur-sm relative z-10;
+}
+
+.metric-card {
+  @apply bg-system-secondary p-6 rounded-xl shadow-lg border border-system-accent/30 relative overflow-hidden transition-all duration-300;
+  animation: glow 3s infinite;
+}
+
+.metric-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0%,
+    rgba(233, 69, 96, 0.1) 25%,
+    transparent 50%
+  );
+  animation: rotate 10s linear infinite;
+  z-index: 0;
+}
+
+.metric-card:hover {
+  @apply transform scale-105 border-system-highlight/50;
+  box-shadow: 
+    0 0 30px rgba(233, 69, 96, 0.2),
+    inset 0 0 20px rgba(233, 69, 96, 0.1);
+}
+
+.metric-value {
+  @apply text-3xl font-bold text-white mb-2 relative z-10;
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(233, 69, 96, 0.2);
+}
+
+.metric-label {
+  @apply text-gray-400 text-sm relative z-10;
+  letter-spacing: 0.05em;
+}
+
+.metric-label::before {
+  content: '⟨';
+  margin-right: 0.5em;
+  color: rgba(233, 69, 96, 0.5);
+}
+
+.metric-label::after {
+  content: '⟩';
+  margin-left: 0.5em;
+  color: rgba(233, 69, 96, 0.5);
+}
+
+.status-indicator {
+  @apply w-3 h-3 rounded-full inline-block mr-2;
+  animation: pulse 2s infinite;
+  position: relative;
+}
+
+.status-indicator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.status-up {
+  @apply bg-green-500;
+  box-shadow: 
+    0 0 10px rgba(74, 222, 128, 0.5),
+    0 0 20px rgba(74, 222, 128, 0.3);
+}
+
+.status-up::before {
+  animation: pulse 2s infinite;
+  background: rgba(74, 222, 128, 0.2);
+}
+
+.status-down {
+  @apply bg-red-500;
+  box-shadow: 
+    0 0 10px rgba(239, 68, 68, 0.5),
+    0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+.status-warning {
+  @apply bg-yellow-500;
+  box-shadow: 
+    0 0 10px rgba(234, 179, 8, 0.5),
+    0 0 20px rgba(234, 179, 8, 0.3);
+}
+
+.section-header {
+  @apply text-2xl font-bold mb-4 text-white relative inline-block;
+  text-shadow: 
+    0 0 15px rgba(233, 69, 96, 0.5),
+    0 0 30px rgba(233, 69, 96, 0.3);
+}
+
+.section-header::before {
+  content: '[ ';
+  color: rgba(233, 69, 96, 0.7);
+}
+
+.section-header::after {
+  content: ' ]';
+  color: rgba(233, 69, 96, 0.7);
+}
+
+.container-card {
+  @apply bg-system-accent/80 p-6 rounded-xl backdrop-blur-md transition-all duration-300;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.container-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(45deg, transparent 0%, rgba(233, 69, 96, 0.1) 100%),
+    url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIiIHN0cm9rZT0icmdiYSgyMzMsIDY5LCA5NiwgMC4yKSIvPjwvZz48L3N2Zz4=');
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.container-card:hover {
+  @apply transform scale-102;
+  box-shadow: 
+    0 0 30px rgba(233, 69, 96, 0.15),
+    inset 0 0 20px rgba(233, 69, 96, 0.1);
+  border-color: rgba(233, 69, 96, 0.3);
+}
+
+.grid-background {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(233, 69, 96, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(233, 69, 96, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+  background-position: center center;
+}
+
+.proxmox-node {
+  @apply relative overflow-hidden;
+}
+
+.proxmox-node::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    linear-gradient(
+      45deg,
+      transparent 0%,
+      rgba(233, 69, 96, 0.1) 50%,
+      transparent 100%
+    );
+  animation: matrix-bg 15s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.header-title {
+  position: relative;
+  display: inline-block;
+}
+
+.header-title::before,
+.header-title::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 2px;
+  background: rgba(233, 69, 96, 0.5);
+  transform: translateY(-50%);
+}
+
+.header-title::before {
+  left: -40px;
+}
+
+.header-title::after {
+  right: -40px;
+}
+
+.system-icon {
+  @apply inline-block w-5 h-5 mr-2 opacity-70;
+  filter: drop-shadow(0 0 2px rgba(233, 69, 96, 0.5));
+}
+
+.metric-icon {
+  @apply absolute top-3 right-3 w-8 h-8 opacity-20;
+  filter: drop-shadow(0 0 4px rgba(233, 69, 96, 0.3));
+}

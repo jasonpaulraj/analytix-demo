@@ -1,0 +1,26 @@
+{
+  "status": "healthy",
+  "timestamp": "2025-04-10T07:20:58.561331",
+  "services": {
+    "uptime_kuma": {
+      "status": "healthy",
+      "message": "Connected successfully",
+      "enabled": "true"
+    },
+    "prometheus": {
+      "status": "unknown",
+      "message": null,
+      "enabled": "false"
+    },
+    "grafana": {
+      "status": "healthy",
+      "message": "Connected successfully",
+      "enabled": "true"
+    },
+    "proxmox": {
+      "status": "healthy",
+      "message": "Connected successfully",
+      "enabled": "true"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "nodes": [
+    {
+      "node": "proxmox",
+      "id": "node/proxmox",
+      "status": "online",
+      "cpu": 0.111723446893788,
+      "memory": 5027459072,
+      "uptime": 343388,
+      "ip": ""
+    },
+    {
+      "node": "pve02",
+      "id": "node/pve02",
+      "status": "offline",
+      "cpu": null,
+      "memory": null,
+      "uptime": null,
+      "ip": ""
+    },
+    {
+      "node": "pve01",
+      "id": "node/pve01",
+      "status": "online",
+      "cpu": 0.0187932739861523,
+      "memory": 2737549312,
+      "uptime": 343394,
+      "ip": ""
+    }
+  ]
+}

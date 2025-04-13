@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytix</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%233B82F6' d='M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v14H5V5zm2 2v2h10V7H7zm0 4v2h10v-2H7zm0 4v2h7v-2H7z'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="description" content="A framework-free, static HTML implementation of a system monitoring dashboard UI with JavaScript data loading." />
+    <meta property="og:title" content="Analytix - System Monitoring Dashboard" />
+    <meta property="og:description" content="A framework-free, static HTML implementation of a system monitoring dashboard UI with JavaScript data loading." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jpextorche.github.io/dashboard-monitor-ui/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PXGKZSV2C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-8PXGKZSV2C");
+    </script>
+  </head>
+  <body class="text-white font-['Space_Grotesk'] bg-system-primary">
+    <div class="3xs:w-[100%] xs:w-[95%] lg:w-[90%] llg:w-[75%] mx-auto">
+      <div class="container mx-auto px-4 py-8">
+        <header class="mb-12 text-center">
+          <div class="header-title">
+            <h1 class="text-5xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-system-highlight to-blue-500"><i class="ri-server-line mr-3"></i>Analytix</h1>
+          </div>
+          <p class="text-gray-400 text-lg mt-4"><i class="ri-pulse-line mr-2"></i>System Monitoring Dashboard</p>
+          <div class="z-4000 mx-auto text-center" style="max-width: 10rem;">
+            <a
+              href="https://github.com/jpextorche/dashboard-monitor-ui"
+              target="_blank"
+              class="flex items-center text-center  py-2 bg-system-secondary/80 hover:bg-system-secondary text-gray-300 hover:text-white rounded-lg transition-colors shadow-lg"
+            >
+              <i class="ri-github-fill text-xl mr-2"></i>
+              <span class="md:inline">View on GitHub</span>
+            </a>
+          </div>
+        </header>
+
+        <!-- Applications -->
+        <section class="mb-12">
+          <h2 class="section-header"><i class="ri-service-line system-icon"></i>Applications</h2>
+          <div class="bg-system-secondary/50 rounded-xl xs:p-6 grid-background">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 llg:grid-cols-4 xxl:grid-cols-5 gap-6" id="docker-containers">
+              <!-- Proxmox -->
+              <div class="bg-system-secondary/50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+                <div class="flex-center text-center">
+                  <div class="bg-system-secondary rounded-lg flex items-center justify-center">
+                    <img src="https://img.icons8.com/color/48/proxmox.png" alt="Proxmox logo" class="w-12 h-12" />
+                  </div>
+                    <h3 class="text-lg font-medium text-gray-300">Proxmox</h3>
+                    <p class="text-sm text-gray-400">
+                      Virtualization Platform
+                    </p>
+                  <a href="https://proxmox.com" target="_blank" style="width: 6rem;margin: 1rem auto 0 auto;" class="z-4000 px-4 py-2 bg-system-highlight/20 hover:bg-system-highlight/40 text-blue-400 rounded-md transition-colors duration-300 flex items-center">
+                    <span>Open</span>
+                    <i class="ri-external-link-line ml-2"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- Grafana -->
+              <div class="bg-system-secondary/50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+                <div class="flex-center text-center">
+                  <div class="bg-system-secondary rounded-lg flex items-center justify-center">
+                    <img src="https://img.icons8.com/color/48/grafana.png" alt="Grafana logo" class="w-12 h-12" />
+                  </div>
+                    <h3 class="text-lg font-medium text-gray-300">Grafana</h3>
+                    <p class="text-sm text-gray-400">
+                      Monitoring & Analytics
+                    </p>
+                  <a href="https://grafana.com" target="_blank" style="width: 6rem;margin: 1rem auto 0 auto;" class="z-4000 px-4 py-2 bg-system-highlight/20 hover:bg-system-highlight/40 text-blue-400 rounded-md transition-colors duration-300 flex items-center">
+                    <span>Open</span>
+                    <i class="ri-external-link-line ml-2"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- Prometheus -->
+              <div class="bg-system-secondary/50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+                <div class="flex-center text-center">
+                  <div class="bg-system-secondary rounded-lg flex items-center justify-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg" alt="Prometheus logo" class="w-12 h-12" />
+                  </div>
+                    <h3 class="text-lg font-medium text-gray-300">
+                      Prometheus
+                    </h3>
+                    <p class="text-sm text-gray-400">Metrics & Alerting</p>
+                  <a href="https://prometheus.com" target="_blank" style="width: 6rem;margin: 1rem auto 0 auto;" class="z-4000 px-4 py-2 bg-system-highlight/20 hover:bg-system-highlight/40 text-blue-400 rounded-md transition-colors duration-300 flex items-center">
+                    <span>Open</span>
+                    <i class="ri-external-link-line ml-2"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- Uptime Kuma -->
+              <div class="bg-system-secondary/50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+                <div class="flex-center text-center">
+                  <div class="bg-system-secondary rounded-lg flex items-center justify-center">
+                    <img src="https://uptime.kuma.pet/img/icon.svg" alt="Uptime Kuma logo" class="w-12 h-12" />
+                  </div>
+                    <h3 class="text-lg font-medium text-gray-300">
+                      Uptime Kuma
+                    </h3>
+                    <p class="text-sm text-gray-400">Uptime Monitoring</p>
+                  <a href="https://uptime.kuma.pet" target="_blank" style="width: 6rem;margin: 1rem auto 0 auto;" class="z-4000 px-4 py-2 bg-system-highlight/20 hover:bg-system-highlight/40 text-blue-400 rounded-md transition-colors duration-300 flex items-center">
+                    <span>Open</span>
+                    <i class="ri-external-link-line ml-2"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- Portainer -->
+              <div class="bg-system-secondary/50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+                <div class="flex-center text-center">
+                  <div class="bg-system-secondary rounded-lg flex items-center justify-center">
+                    <img src="https://cdn.worldvectorlogo.com/logos/portainer.svg" alt="Portainer logo" class="w-12 h-12" />
+                  </div>
+                    <h3 class="text-lg font-medium text-gray-300">
+                      Portainer
+                    </h3>
+                    <p class="text-sm text-gray-400">Container Management</p>
+                  <a href="https://portainer.com" target="_blank" style="width: 6rem;margin: 1rem auto 0 auto;" class="z-4000 px-4 py-2 bg-system-highlight/20 hover:bg-system-highlight/40 text-blue-400 rounded-md transition-colors duration-300 flex items-center">
+                    <span>Open</span>
+                    <i class="ri-external-link-line ml-2"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- FileFlow -->
+              <div class="bg-system-secondary/50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+                <div class="flex-center text-center">
+                  <div class="bg-system-secondary rounded-lg flex items-center justify-center">
+                    <img src="https://fileflows.com/img/logo.svg" alt="Portainer logo" class="w-12 h-12" />
+                  </div>
+                    <h3 class="text-lg font-medium text-gray-300">
+                      FileFlows
+                    </h3>
+                    <p class="text-sm text-gray-400">File Converter</p>
+                  <a href="https://fileflows.com" target="_blank" style="width: 6rem;margin: 1rem auto 0 auto;" class="z-4000 px-4 py-2 bg-system-highlight/20 hover:bg-system-highlight/40 text-blue-400 rounded-md transition-colors duration-300 flex items-center">
+                    <span>Open</span>
+                    <i class="ri-external-link-line ml-2"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Services Status -->
+        <section class="mb-12">
+          <h2 class="section-header"><i class="ri-settings-2-line system-icon"></i>Services Status</h2>
+          <!-- Uptime Kuma -->
+          <div class="bg-system-secondary/50 rounded-xl xs:p-6 grid-background">
+            <h3 class="text-2xl font-semibold mb-4 text-gray-300 border-b border-system-secondary pb-2 flex items-center"><i class="ri-pulse-line mr-2"></i>Uptime Kuma</h3>
+            <div class="bg-system-secondary/50 rounded-xl xs:p-6 grid-background">
+              <div class="p-4 bg-system-secondary/50 rounded-lg metric-card">
+                <div class="flex flex-wrap justify-between items-center mb-3">
+                  <div class="flex items-center">
+                    <i class="ri-information-line text-blue-400 mr-2 text-xl"></i>
+                    <span class="text-gray-300 font-medium">Uptime Kuma v1.21.3</span>
+                    <span class="ml-2 text-xs px-2 py-0.5 bg-yellow-900/30 text-yellow-400 rounded-full" style="text-align: center;">
+                      Update available: v1.23.0
+                    </span>
+                  </div>
+                  <div class="text-xs text-gray-400">
+                    <span class="mr-3">Running in container</span>
+                    <span>Asia/Singapore (GMT+8)</span>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
+                  <div class="bg-system-secondary/50 rounded-lg p-2">
+                    <div class="text-sm font-medium text-gray-300">
+                      Monitors
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <span class="text-gray-400">Total: 12</span>
+                      <span class="text-green-400">Up: 10</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <span class="text-red-400">Down: 1</span>
+                      <span class="text-yellow-400">Maintenance: 1</span>
+                    </div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-2">
+                    <div class="text-sm font-medium text-gray-300">
+                      Performance
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <span class="text-gray-400">Avg Response:</span>
+                      <span class="text-green-400"> 245 ms </span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <span class="text-gray-400">Health Score:</span>
+                      <span class="text-green-400"> 92.5/100 </span>
+                    </div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-2">
+                    <div class="text-sm font-medium text-gray-300">Status</div>
+                    <div class="flex items-center justify-between">
+                      <span class="text-gray-400">Uptime:</span>
+                      <span class="text-green-400"> 99.8% </span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <span class="text-gray-400">Last Update:</span>
+                      <span class="text-gray-400"> 2:45 PM </span>
+                    </div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-2">
+                    <div class="text-sm font-medium text-gray-300">System</div>
+                    <div class="flex items-center">
+                      <i class="ri-database-2-line mr-1 text-blue-400"></i>
+                      <span class="text-gray-400">Database: 0.8 GB</span>
+                    </div>
+                    <div class="flex items-center mt-1">
+                      <i class="ri-time-line mr-1 text-blue-400"></i>
+                      <span class="text-gray-400">Updated: 5 minutes ago</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br class="xs:hidden" />
+            <br class="xs:hidden" />
+            <div class="bg-system-secondary/50 rounded-xl xs:p-6 grid-background">
+              <div class="bg-system-secondary/50 rounded-lg grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 llg:grid-cols-2 xl:grid-cols-2 xxl:grid-cols-2 2xl:grid-cols-3 gap-6">
+                <!-- Sample monitor 1 -->
+                <div class="metric-card xs:hidden bg-system-secondary/50 rounded-lg">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-medium truncate max-w-[70%]">Main Website</span>
+                    <div class="flex items-center">
+                      <span class="text-xs mr-2 px-2 py-1 rounded-full bg-green-900/30 text-green-400">
+                        99.9%
+                      </span>
+                      <span class="status-indicator status-up"></span>
+                    </div>
+                  </div>
+                  <!-- Enhanced mobile view with more information -->
+                  <div class="text-sm text-gray-400 space-y-2">
+                    <div class="flex justify-between">
+                      <span>Type: Http</span>
+                      <span>Method: GET</span>
+                    </div>
+                    <div class="truncate">
+                      URL:
+                      <a href="https://example.com" target="_blank" class="text-blue-400 hover:underline relative z-20">https://example.com</a>
+                    </div>
+                    <div class="truncate">
+                      Description: Main company website
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Interval: 60s</span>
+                      <span>Timeout: 10s</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Ping: <span class="text-green-400">45ms</span></span>
+                      <span>Quality: <span class="text-green-400">Good</span></span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Health Score:</span>
+                      <span class="text-green-400">95.5/100</span>
+                    </div>
+                    <div class="mt-2">
+                      <div class="w-full bg-gray-700 rounded-full h-1.5">
+                        <div class="bg-gradient-to-r from-green-500 to-blue-500 h-1.5 rounded-full progress-bar" data-width="99.9"></div>
+                      </div>
+                      <div class="flex justify-between text-xs mt-1">
+                        <span>24h: 99.9%</span>
+                        <span>30d: 99.8%</span>
+                      </div>
+                    </div>
+                    <div class="mt-2 bg-system-secondary/50 rounded-md p-1">
+                      <div class="flex items-center justify-between">
+                        <span class="text-xs font-medium text-gray-300">SSL Certificate</span>
+                        <span class="text-xs px-1.5 py-0.5 rounded-full bg-green-900/30 text-green-400">
+                          Valid
+                        </span>
+                      </div>
+                      <div class="text-xs">
+                        <div>CN: example.com</div>
+                        <div>Expires in: 85 days</div>
+                      </div>
+                    </div>
+                    <div class="text-xs">Last Check: 5 minutes ago</div>
+                    <!-- Monitor Logs for mobile -->
+                    <div class="mt-3 relative">
+                      <div class="flex items-center justify-between mb-1">
+                        <span class="text-xs font-medium text-gray-300">Recent Activity</span>
+                        <span class="text-xs text-gray-500">5 entries</span>
+                      </div>
+                      <div class="custom-scrollbar-container bg-system-secondary/50 rounded-md p-1 relative z-10">
+                        <div class="custom-scrollbar" style="max-height: 120px; overflow-y: auto;">
+                          <table class="w-full text-xs">
+                            <tbody>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-1 whitespace-nowrap">
+                                  <span class="text-gray-400 text-[10px]">15 Aug, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-1">
+                                  <span class="px-1 py-0.5 rounded-full text-[10px] bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-1 text-gray-400 truncate max-w-[120px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-1 whitespace-nowrap">
+                                  <span class="text-gray-400 text-[10px]">15 Aug, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-1">
+                                  <span class="px-1 py-0.5 rounded-full text-[10px] bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-1 text-gray-400 truncate max-w-[120px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Desktop view for monitor 1 -->
+                <div class="metric-card hidden xs:block">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-medium">Main Website</span>
+                    <div class="flex items-center">
+                      <span class="text-xs mr-2 px-2 py-1 rounded-full bg-green-900/30 text-green-400">
+                        99.9%
+                      </span>
+                      <span class="status-indicator status-up"></span>
+                    </div>
+                  </div>
+                  <div class="text-sm text-gray-400 space-y-1">
+                    <div class="flex justify-between">
+                      <span>Type: Http</span>
+                    </div>
+                    <div>
+                      URL:
+                      <a href="https://example.com" target="_blank" class="text-blue-400 hover:underline relative z-20">https://example.com</a>
+                    </div>
+                    <div>Description: Main company website</div>
+                    <div class="flex justify-between">
+                      <span>Method: GET</span>
+                      <span>Timeout: 10s</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Interval: 60 seconds</span>
+                      <span class="text-green-400">45ms</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Ping Quality:</span>
+                      <span class="text-green-400"> Good </span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Health Score:</span>
+                      <span class="text-green-400"> 95.5/100 </span>
+                    </div>
+                    <div class="mt-2">
+                      <div class="w-full bg-gray-700 rounded-full h-1.5">
+                        <div class="bg-gradient-to-r from-green-500 to-blue-500 h-1.5 rounded-full progress-bar" data-width="99.9"></div>
+                      </div>
+                      <div class="flex justify-between text-xs mt-1">
+                        <span>24h: 99.9% <span class="text-green-400">(Excellent)</span></span>
+                        <span>30d: 99.8% <span class="text-green-400">(Excellent)</span></span>
+                      </div>
+                    </div>
+                    <div class="mt-2 bg-system-secondary/50 rounded-md">
+                      <div class="flex items-center justify-between mb-1">
+                        <span class="text-xs font-medium text-gray-300">SSL Certificate</span>
+                        <span class="text-xs px-1.5 py-0.5 rounded-full bg-green-900/30 text-green-400">
+                          Valid
+                        </span>
+                      </div>
+                      <div class="text-xs">
+                        <div>CN: example.com</div>
+                        <div>Issuer: Let's Encrypt Authority X3</div>
+                        <div>Expires in: 85 days</div>
+                      </div>
+                    </div>
+                    <div class="mt-1">Last Check: 5 minutes ago</div>
+                    <!-- Monitor Logs -->
+                    <div class="mt-3 relative">
+                      <div class="flex items-center justify-between mb-1">
+                        <span class="text-xs font-medium text-gray-300">Recent Activity</span>
+                        <span class="text-xs text-gray-500">5 entries</span>
+                      </div>
+                      <div class="custom-scrollbar-container bg-system-secondary/50 rounded-md p-1 relative z-10">
+                        <div class="custom-scrollbar" style="min-height: 100px;">
+                          <table class="w-full text-xs">
+                            <tbody>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 1:30 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Sample monitor 2 (with down status) -->
+                <div class="metric-card hidden xs:block">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-medium">API Service</span>
+                    <div class="flex items-center">
+                      <span class="text-xs mr-2 px-2 py-1 rounded-full bg-red-900/30 text-red-400">
+                        95.2%
+                      </span>
+                      <span class="status-indicator status-down"></span>
+                    </div>
+                  </div>
+                  <div class="text-sm text-gray-400 space-y-1">
+                    <div class="flex justify-between">
+                      <span>Type: Http</span>
+                    </div>
+                    <div>
+                      URL:
+                      <a href="https://api.example.com" target="_blank" class="text-blue-400 hover:underline relative z-20">https://api.example.com</a>
+                    </div>
+                    <div>Description: REST API endpoint</div>
+                    <div class="flex justify-between">
+                      <span>Method: GET</span>
+                      <span>Timeout: 5s</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Interval: 30 seconds</span>
+                      <span class="text-red-400">502ms</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Ping Quality:</span>
+                      <span class="text-yellow-400"> Fair </span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Health Score:</span>
+                      <span class="text-yellow-400"> 78.3/100 </span>
+                    </div>
+                    <div class="mt-2">
+                      <div class="w-full bg-gray-700 rounded-full h-1.5">
+                        <div class="bg-gradient-to-r from-green-500 to-blue-500 h-1.5 rounded-full progress-bar" data-width="95.2"></div>
+                      </div>
+                      <div class="flex justify-between text-xs mt-1">
+                        <span>24h: 95.2% <span class="text-yellow-400">(Good)</span></span>
+                        <span>30d: 98.5% <span class="text-green-400">(Excellent)</span></span>
+                      </div>
+                    </div>
+                    <div class="mt-2 bg-system-secondary/50 rounded-md">
+                      <div class="flex items-center justify-between mb-1">
+                        <span class="text-xs font-medium text-gray-300">SSL Certificate</span>
+                        <span class="text-xs px-1.5 py-0.5 rounded-full bg-green-900/30 text-green-400">
+                          Valid
+                        </span>
+                      </div>
+                      <div class="text-xs">
+                        <div>CN: api.example.com</div>
+                        <div>Issuer: Let's Encrypt Authority X3</div>
+                        <div>Expires in: 45 days</div>
+                      </div>
+                    </div>
+                    <div class="mt-1">Last Check: 2 minutes ago</div>
+                    <!-- Monitor Logs -->
+                    <div class="mt-3 relative">
+                      <div class="flex items-center justify-between mb-1">
+                        <span class="text-xs font-medium text-gray-300">Recent Activity</span>
+                        <span class="text-xs text-gray-500">5 entries</span>
+                      </div>
+                      <div class="custom-scrollbar-container bg-system-secondary/50 rounded-md p-1 relative z-10">
+                        <div class="custom-scrollbar" style="min-height: 100px;">
+                          <table class="w-full text-xs">
+                            <tbody>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:45 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-red-900/30 text-red-400">
+                                    DOWN
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 503 Service Unavailable">
+                                  HTTP 503 Service Unavailable
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:15 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Sample monitor 3 (with down status) -->
+                <div class="metric-card hidden xs:block">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-medium">API Service</span>
+                    <div class="flex items-center">
+                      <span class="text-xs mr-2 px-2 py-1 rounded-full bg-red-900/30 text-red-400">
+                        95.2%
+                      </span>
+                      <span class="status-indicator status-down"></span>
+                    </div>
+                  </div>
+                  <div class="text-sm text-gray-400 space-y-1">
+                    <div class="flex justify-between">
+                      <span>Type: Http</span>
+                    </div>
+                    <div>
+                      URL:
+                      <a href="https://api.example.com" target="_blank" class="text-blue-400 hover:underline relative z-20">https://api.example.com</a>
+                    </div>
+                    <div>Description: REST API endpoint</div>
+                    <div class="flex justify-between">
+                      <span>Method: GET</span>
+                      <span>Timeout: 5s</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Interval: 30 seconds</span>
+                      <span class="text-red-400">502ms</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Ping Quality:</span>
+                      <span class="text-yellow-400"> Fair </span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Health Score:</span>
+                      <span class="text-yellow-400"> 78.3/100 </span>
+                    </div>
+                    <div class="mt-2">
+                      <div class="w-full bg-gray-700 rounded-full h-1.5">
+                        <div class="bg-gradient-to-r from-green-500 to-blue-500 h-1.5 rounded-full progress-bar" data-width="95.2"></div>
+                      </div>
+                      <div class="flex justify-between text-xs mt-1">
+                        <span>24h: 95.2% <span class="text-yellow-400">(Good)</span></span>
+                        <span>30d: 98.5% <span class="text-green-400">(Excellent)</span></span>
+                      </div>
+                    </div>
+                    <div class="mt-2 bg-system-secondary/50 rounded-md">
+                      <div class="flex items-center justify-between mb-1">
+                        <span class="text-xs font-medium text-gray-300">SSL Certificate</span>
+                        <span class="text-xs px-1.5 py-0.5 rounded-full bg-green-900/30 text-green-400">
+                          Valid
+                        </span>
+                      </div>
+                      <div class="text-xs">
+                        <div>CN: api.example.com</div>
+                        <div>Issuer: Let's Encrypt Authority X3</div>
+                        <div>Expires in: 45 days</div>
+                      </div>
+                    </div>
+                    <div class="mt-1">Last Check: 2 minutes ago</div>
+                    <!-- Monitor Logs -->
+                    <div class="mt-3 relative">
+                      <div class="flex items-center justify-between mb-1">
+                        <span class="text-xs font-medium text-gray-300">Recent Activity</span>
+                        <span class="text-xs text-gray-500">5 entries</span>
+                      </div>
+                      <div class="custom-scrollbar-container bg-system-secondary/50 rounded-md p-1 relative z-10">
+                        <div class="custom-scrollbar" style="min-height: 100px;">
+                          <table class="w-full text-xs">
+                            <tbody>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:45 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-red-900/30 text-red-400">
+                                    DOWN
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 503 Service Unavailable">
+                                  HTTP 503 Service Unavailable
+                                </td>
+                              </tr>
+                              <tr class="border-b border-gray-800/30 last:border-0">
+                                <td class="py-1 px-2 whitespace-nowrap">
+                                  <span class="text-gray-400">15 Aug 2023, 2:15 PM</span>
+                                </td>
+                                <td class="py-1 px-2">
+                                  <span class="px-1.5 py-0.5 rounded-full text-xs bg-green-900/30 text-green-400">
+                                    UP
+                                  </span>
+                                </td>
+                                <td class="py-1 px-2 text-gray-400 truncate max-w-[150px]" title="HTTP 200 OK">
+                                  HTTP 200 OK
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Proxmox Status -->
+        <section class="mb-12">
+          <h2 class="section-header"><i class="ri-server-line system-icon"></i>Proxmox Nodes</h2>
+          <div class="bg-system-secondary/50 rounded-xl p-4 xs:p-6 grid-background">
+            <!-- Cluster Overview Card -->
+            <div class="mb-6 bg-system-secondary/50 rounded-lg">
+              <div class="border-b border-system-secondary">
+                <div class="p-4 flex items-center">
+                  <i class="ri-cloud-line text-blue-400 mr-2 text-xl"></i>
+                  <h3 class="text-xl font-semibold text-gray-300">
+                    Cluster Overview
+                  </h3>
+                </div>
+              </div>
+              <div class="p-4">
+                <div class="metric-card grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                  <div class="bg-system-secondary/50 rounded-lg p-3">
+                    <div class="text-sm font-medium text-gray-300">Nodes</div>
+                    <div class="text-xl font-semibold text-blue-400">3</div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-3">
+                    <div class="text-sm font-medium text-gray-300">VMs</div>
+                    <div class="text-xl font-semibold text-blue-400">12</div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-3">
+                    <div class="text-sm font-medium text-gray-300">
+                      Storage Pools
+                    </div>
+                    <div class="text-xl font-semibold text-blue-400">5</div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-3">
+                    <div class="text-sm font-medium text-gray-300">
+                      Total CPU
+                    </div>
+                    <div class="text-xl font-semibold text-blue-400">48</div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-3">
+                    <div class="text-sm font-medium text-gray-300">
+                      Total Memory
+                    </div>
+                    <div class="text-xl font-semibold text-blue-400">
+                      256 GB
+                    </div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-3">
+                    <div class="text-sm font-medium text-gray-300">
+                      Total Disk
+                    </div>
+                    <div class="text-xl font-semibold text-blue-400">
+                      8192 GB
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- System Overview Card -->
+            <div class="mb-6 bg-system-secondary/50 rounded-lg">
+              <div class="border-b border-system-secondary">
+                <div class="p-4 flex items-center">
+                  <i class="ri-dashboard-line text-blue-400 mr-2 text-xl"></i>
+                  <h3 class="text-xl font-semibold text-gray-300">
+                    System Overview
+                  </h3>
+                </div>
+              </div>
+              <div class="p-4">
+                <div class="metric-card grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div class="bg-system-secondary/50 rounded-lg p-3">
+                    <div class="flex items-center mb-2">
+                      <i class="ri-cpu-line text-blue-400 mr-2 text-xl"></i>
+                      <div class="text-sm font-medium text-gray-300">
+                        CPU Usage
+                      </div>
+                    </div>
+                    <div class="text-xl font-semibold text-blue-400" id="cpu-usage">
+                      35%
+                    </div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-3">
+                    <div class="flex items-center mb-2">
+                      <i class="ri-ram-line text-blue-400 mr-2 text-xl"></i>
+                      <div class="text-sm font-medium text-gray-300">
+                        RAM Usage
+                      </div>
+                    </div>
+                    <div class="text-xl font-semibold text-blue-400" id="ram-usage">
+                      128GB / 256GB
+                    </div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-3">
+                    <div class="flex items-center mb-2">
+                      <i class="ri-hard-drive-line text-blue-400 mr-2 text-xl"></i>
+                      <div class="text-sm font-medium text-gray-300">
+                        Storage
+                      </div>
+                    </div>
+                    <div class="text-xl font-semibold text-blue-400" id="storage-usage">
+                      4.2TB / 8TB
+                    </div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-3">
+                    <div class="flex items-center mb-2">
+                      <i class="ri-speed-up-line text-blue-400 mr-2 text-xl"></i>
+                      <div class="text-sm font-medium text-gray-300">
+                        Network Speed
+                      </div>
+                    </div>
+                    <div class="text-xl font-semibold text-blue-400" id="network-speed">
+                      0 Mbps
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Node Details Card -->
+            <div class="bg-system-secondary/50 rounded-lg overflow-hidden">
+              <div class="border-b border-system-secondary">
+                <div class="p-4 flex items-center justify-between">
+                  <div class="flex items-center">
+                    <i class="ri-server-fill text-blue-400 mr-2 text-xl"></i>
+                    <h3 class="text-xl font-semibold text-gray-300">Nodes</h3>
+                  </div>
+                  <span class="text-xs text-gray-400 px-2 py-1 bg-system-secondary/50 rounded-full">
+                    3 nodes
+                  </span>
+                </div>
+              </div>
+              <!-- Proxmox Node Details -->
+              <div class="p-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                  <!-- Node 1 -->
+                  <div class="metric-card bg-system-secondary/50 rounded-lg p-4 border border-system-secondary/30 hover:border-blue-500/30 transition-all duration-300">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center">
+                        <i class="ri-server-line text-blue-400 mr-2 text-xl"></i>
+                        <span class="text-gray-300 font-medium">pve-node01</span>
+                      </div>
+                      <span class="status-indicator status-up"></span>
+                    </div>
+                    <div class="space-y-3">
+                      <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">Status:</span>
+                        <span class="text-green-400 text-sm font-medium px-2 py-0.5 rounded-full bg-green-900/20">
+                          Online
+                        </span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">CPU:</span>
+                        <div class="flex items-center">
+                          <div class="w-16 bg-gray-700 rounded-full h-1.5 mr-2">
+                            <div class="bg-green-500 h-1.5 rounded-full progress-bar" data-width="25"></div>
+                          </div>
+                          <span class="text-green-400 text-sm">25%</span>
+                        </div>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">Memory:</span>
+                        <span class="text-blue-400 text-sm">64 GB</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">IP Address:</span>
+                        <span class="text-gray-300 text-sm font-mono">192.168.1.101</span>
+                      </div>
+                      <div class="pt-2 border-t border-system-secondary/30">
+                        <div class="flex items-center text-gray-400 text-sm">
+                          <i class="ri-time-line mr-1 text-blue-400"></i>
+                          <span>Uptime: 45 days, 12 hours</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Node 2 -->
+                  <div class="metric-card bg-system-secondary/50 rounded-lg p-4 border border-system-secondary/30 hover:border-blue-500/30 transition-all duration-300">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center">
+                        <i class="ri-server-line text-blue-400 mr-2 text-xl"></i>
+                        <span class="text-gray-300 font-medium">pve-node02</span>
+                      </div>
+                      <span class="status-indicator status-up"></span>
+                    </div>
+                    <div class="space-y-3">
+                      <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">Status:</span>
+                        <span class="text-green-400 text-sm font-medium px-2 py-0.5 rounded-full bg-green-900/20">
+                          Online
+                        </span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">CPU:</span>
+                        <div class="flex items-center">
+                          <div class="w-16 bg-gray-700 rounded-full h-1.5 mr-2">
+                            <div class="bg-yellow-500 h-1.5 rounded-full progress-bar" data-width="65"></div>
+                          </div>
+                          <span class="text-yellow-400 text-sm">65%</span>
+                        </div>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">Memory:</span>
+                        <span class="text-blue-400 text-sm">128 GB</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">IP Address:</span>
+                        <span class="text-gray-300 text-sm font-mono">192.168.1.102</span>
+                      </div>
+                      <div class="pt-2 border-t border-system-secondary/30">
+                        <div class="flex items-center text-gray-400 text-sm">
+                          <i class="ri-time-line mr-1 text-blue-400"></i>
+                          <span>Uptime: 30 days, 5 hours</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Node 3 -->
+                  <div class="metric-card bg-system-secondary/50 rounded-lg p-4 border border-system-secondary/30 hover:border-blue-500/30 transition-all duration-300">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center">
+                        <i class="ri-server-line text-blue-400 mr-2 text-xl"></i>
+                        <span class="text-gray-300 font-medium">pve-node03</span>
+                      </div>
+                      <span class="status-indicator status-down"></span>
+                    </div>
+                    <div class="space-y-3">
+                      <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">Status:</span>
+                        <span class="text-red-400 text-sm font-medium px-2 py-0.5 rounded-full bg-red-900/20">
+                          Offline
+                        </span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">CPU:</span>
+                        <div class="flex items-center">
+                          <div class="w-16 bg-gray-700 rounded-full h-1.5 mr-2">
+                            <div class="bg-red-500 h-1.5 rounded-full progress-bar" data-width="0"></div>
+                          </div>
+                          <span class="text-red-400 text-sm">0%</span>
+                        </div>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">Memory:</span>
+                        <span class="text-blue-400 text-sm">64 GB</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">IP Address:</span>
+                        <span class="text-gray-300 text-sm font-mono">192.168.1.103</span>
+                      </div>
+                      <div class="pt-2 border-t border-system-secondary/30">
+                        <div class="flex items-center text-gray-400 text-sm">
+                          <i class="ri-time-line mr-1 text-blue-400"></i>
+                          <span>Uptime: N/A</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ServiceMesh -->
+        <section class="mb-12">
+          <h2 class="section-header"><i class="ri-heart-pulse-line system-icon"></i>ServiceMesh</h2>
+          <div class="bg-system-secondary/50 rounded-xl xs:p-6 grid-background">
+            <div class="p-4 flex items-center justify-between grid grid-cols-2 gap-6">
+              <!-- Service 1 -->
+              <div class="p-4 bg-system-secondary/50 rounded-lg metric-card">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center">
+                    <i class="ri-settings-line text-blue-400 mr-2"></i>
+                    <span class="text-gray-300 font-medium capitalize">api-gateway</span>
+                  </div>
+                  <span class="status-indicator status-up"></span>
+                </div>
+                <div class="grid grid-cols-1 gap-3">
+                  <div class="bg-system-secondary/50 rounded-lg p-2">
+                    <div class="text-sm font-medium text-gray-300">Status</div>
+                    <div class="text-green-400">Healthy</div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-2">
+                    <div class="text-sm font-medium text-gray-300">Message</div>
+                    <div class="text-gray-400 custom-scrollbar z-40" style=" text-overflow: ellipsis;
+                    overflow-y: scroll;
+                    white-space: normal;
+                    height: 3rem;
+                    width: 100%;
+                    word-break: break-word;
+                    padding-right: 8px;">All endpoints responding</div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-2">
+                    <div class="text-sm font-medium text-gray-300">Enabled</div>
+                    <div class="text-green-400">Yes</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Service 2 -->
+              <div class="p-4 bg-system-secondary/50 rounded-lg metric-card">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center">
+                    <i class="ri-settings-line text-blue-400 mr-2"></i>
+                    <span class="text-gray-300 font-medium capitalize">auth-service</span>
+                  </div>
+                  <span class="status-indicator status-up"></span>
+                </div>
+                <div class="grid grid-cols-1 gap-3">
+                  <div class="bg-system-secondary/50 rounded-lg p-2">
+                    <div class="text-sm font-medium text-gray-300">Status</div>
+                    <div class="text-green-400">Healthy</div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-2">
+                    <div class="text-sm font-medium text-gray-300">Message</div>
+                    <div class="text-gray-400 custom-scrollbar z-40" style=" text-overflow: ellipsis;
+                    overflow-y: scroll;
+                    white-space: normal;
+                    height: 3rem;
+                    width: 100%;
+                    word-break: break-word;
+                    padding-right: 8px;">
+                      Authentication working properly
+                    </div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-2">
+                    <div class="text-sm font-medium text-gray-300">Enabled</div>
+                    <div class="text-green-400">Yes</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Service 3 -->
+              <div class="p-4 bg-system-secondary/50 rounded-lg metric-card">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center">
+                    <i class="ri-settings-line text-blue-400 mr-2"></i>
+                    <span class="text-gray-300 font-medium capitalize">database-service</span>
+                  </div>
+                  <span class="status-indicator status-warning"></span>
+                </div>
+                <div class="grid grid-cols-1 gap-3">
+                  <div class="bg-system-secondary/50 rounded-lg p-2">
+                    <div class="text-sm font-medium text-gray-300">Status</div>
+                    <div class="text-yellow-400">Unknown</div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-2">
+                    <div class="text-sm font-medium text-gray-300">Message</div>
+                    <div class="text-gray-400 custom-scrollbar z-40" style=" text-overflow: ellipsis;
+                    overflow-y: scroll;
+                    white-space: normal;
+                    height: 3rem;
+                    width: 100%;
+                    word-break: break-word;
+                    padding-right: 8px;">Partial connectivity issues</div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-2">
+                    <div class="text-sm font-medium text-gray-300">Enabled</div>
+                    <div class="text-green-400">Yes</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Service 4 -->
+              <div class="p-4 bg-system-secondary/50 rounded-lg metric-card">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center">
+                    <i class="ri-settings-line text-blue-400 mr-2"></i>
+                    <span class="text-gray-300 font-medium capitalize">storage-service</span>
+                  </div>
+                  <span class="status-indicator status-down"></span>
+                </div>
+                <div class="grid grid-cols-1 gap-3">
+                  <div class="bg-system-secondary/50 rounded-lg p-2">
+                    <div class="text-sm font-medium text-gray-300">Status</div>
+                    <div class="text-red-400">Unhealthy</div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-2">
+                    <div class="text-sm font-medium text-gray-300">Message</div>
+                    <div class="text-gray-400 custom-scrollbar z-40" style=" text-overflow: ellipsis;
+                    overflow-y: scroll;
+                    white-space: normal;
+                    height: 3rem;
+                    width: 100%;
+                    word-break: break-word;
+                    padding-right: 8px;">
+                      Storage endpoint not responding
+                    </div>
+                  </div>
+                  <div class="bg-system-secondary/50 rounded-lg p-2">
+                    <div class="text-sm font-medium text-gray-300">Enabled</div>
+                    <div class="text-yellow-400">No</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Handle progress bars
+        document.querySelectorAll(".progress-bar").forEach(function (bar) {
+          const width = bar.getAttribute("data-width");
+          bar.style.width = width + "%";
+        });
+
+        // Handle CPU progress bars
+        document.querySelectorAll("[data-width]").forEach(function (bar) {
+          const width = bar.getAttribute("data-width");
+          bar.style.width = width + "%";
+          bar.classList.add("transition-all", "duration-500");
+        });
+      });
+    </script>
+  </body>
+</html>

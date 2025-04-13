@@ -1,0 +1,20 @@
+services:
+  # Add a build service to handle npm commands
+  node-builder:
+    image: node:alpine
+    volumes:
+      - ./static-html:/app
+    working_dir: /app
+    command: sh -c "npm install && npm run build:css"
+
+  static-html:
+    image: nginx:alpine
+    ports:
+      - "5331:80"
+    volumes:
+      - ./docker/static-html/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./static-html:/usr/share/nginx/html
+    restart: unless-stopped
+    # Make static-html service depend on node-builder
+    depends_on:
+      - node-builder
