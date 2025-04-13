@@ -1,0 +1,15 @@
+{
+  "name": "ui-component-library-static-html",
+  "version": "1.0.0",
+  "description": "Static HTML implementation of UI component library",
+  "scripts": {
+    "build:css": "tailwindcss -i ./css/app.css -o ./css/styles.css",
+    "watch:css": "tailwindcss -i ./css/app.css -o ./css/styles.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  },
+  "dependencies": {
+    "remixicon": "^4.6.0"
+  }
+}
