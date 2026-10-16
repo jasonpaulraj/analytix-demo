@@ -4,7 +4,11 @@
 
 This directory contains a framework-free, static HTML implementation of the UI components. This version is ideal for quickly integrating the dashboard into existing projects or for developers who prefer vanilla JavaScript.
 
-<video src="./jasonpaulraj:analytix-demo.mp4" controls></video>
+
+
+https://github.com/user-attachments/assets/ed0cbb38-ae6c-4aeb-acd6-2a974be648c8
+
+
 
 ## ✨ Features
 
