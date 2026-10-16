@@ -1,10 +1,31 @@
 var fs = require('fs');
 var path = require('path');
-var pify = require('pify');
 
-var stat = pify(fs.stat);
-var readFile = pify(fs.readFile);
 var resolve = path.resolve;
+
+function stat(path) {
+	return new Promise(function (resolve, reject) {
+		fs.stat(path, function (err, stats) {
+			if (err) {
+				reject(err);
+				return;
+			}
+			resolve(stats);
+		});
+	});
+}
+
+function readFile(path) {
+	return new Promise(function (resolve, reject) {
+		fs.readFile(path, function (err, data) {
+			if (err) {
+				reject(err);
+				return;
+			}
+			resolve(data);
+		});
+	});
+}
 
 var cache = Object.create(null);
 
