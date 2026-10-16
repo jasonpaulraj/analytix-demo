@@ -1,13 +1,10 @@
 # Dashboard Monitor UI 📊
 
-[![Deploy to GitHub Pages](https://github.com/jpextorche/dashboard-monitor-ui/actions/workflows/deploy.yml/badge.svg)](https://github.com/jpextorche/dashboard-monitor-ui/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This directory contains a framework-free, static HTML implementation of the UI components. This version is ideal for quickly integrating the dashboard into existing projects or for developers who prefer vanilla JavaScript.
 
-🔗 **Live Demo**: [https://jpextorche.github.io/dashboard-monitor-ui](https://jpextorche.github.io/dashboard-monitor-ui)
-
-[https://github.com/user-attachments/assets/a01242ce-a8c7-4552-948d-e0ec696515f5](https://github.com/jasonpaulraj/analytix-demo/raw/refs/heads/main/jasonpaulraj:analytix-demo.mp4)
+<video src="./jasonpaulraj:analytix-demo.mp4" controls></video>
 
 ## ✨ Features
 
