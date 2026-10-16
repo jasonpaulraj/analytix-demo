@@ -7,7 +7,7 @@ This directory contains a framework-free, static HTML implementation of the UI c
 
 🔗 **Live Demo**: [https://jpextorche.github.io/dashboard-monitor-ui](https://jpextorche.github.io/dashboard-monitor-ui)
 
-https://github.com/user-attachments/assets/a01242ce-a8c7-4552-948d-e0ec696515f5
+[https://github.com/user-attachments/assets/a01242ce-a8c7-4552-948d-e0ec696515f5](https://github.com/jasonpaulraj/analytix-demo/raw/refs/heads/main/jasonpaulraj:analytix-demo.mp4)
 
 ## ✨ Features
 
